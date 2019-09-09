@@ -20,7 +20,7 @@ const pgClient = new Pool({
     password: keys.pgPassword
 });
 
-pgClient.onError('error', () => console.log('Lost Postgres connection'));
+pgClient.on('error', () => console.log('Lost Postgres connection'));
 pgClient.query('CREATE TABLE IF NOT EXISTS values (number INT)')
     .catch((err) => console.log(err));
 
