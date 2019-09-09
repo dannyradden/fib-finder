@@ -4,23 +4,23 @@ services:
   - docker
 
 before_install:
-  - docker build -t dannyradden/fib-finder -f ./client/Dockerfile.dev ./client
+  - docker build -t dradden/fib-finder -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true dannyradden/fib-finder npm run test
+  - docker run -e CI=true dradden/fib-finder npm run test
 
 after_success: 
-  - docker build -t dannyradden/fib-client ./client
-  - docker build -t dannyradden/fib-nginx ./nginx
-  - docker build -t dannyradden/fib-server ./server
-  - docker build -t dannyradden/fib-worker ./worker
+  - docker build -t dradden/fib-client ./client
+  - docker build -t dradden/fib-nginx ./nginx
+  - docker build -t dradden/fib-server ./server
+  - docker build -t dradden/fib-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push dannyradden/fib-client
-  - docker push dannyradden/fib-nginx
-  - docker push dannyradden/fib-server
-  - docker push dannyradden/fib-worker
+  - docker push dradden/fib-client
+  - docker push dradden/fib-nginx
+  - docker push dradden/fib-server
+  - docker push dradden/fib-worker
 
 # deploy:
 #   provider: elasticbeanstalk
