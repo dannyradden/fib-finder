@@ -60,10 +60,10 @@ app.post('/values', async (req, res)=>{
         return res.status(422).send('Index too high')
     }
     redisClient.hset('values', index, 'Nothing Yet!')
-    redisPublisher('insert', index)
+    redisPublisher.publish('insert', index)
     pgClient.query('INSERT INTO values(number) VALUES($1)', [index])
 
     res.send({working: true})
 })
 
-app.listen(5000, () => console.log('Listening on port 5000'))
+app.listen(5000, (err) => console.log('Listening on port 5000'))
