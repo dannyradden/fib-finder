@@ -1,3 +1,4 @@
+language: generic 
 sudo: required
 services:
   - docker
@@ -8,7 +9,7 @@ before_install:
 script:
   - docker run -e CI=true dannyradden/fib-finder npm run test
 
-after_sucess: 
+after_success: 
   - docker build -t dannyradden/fib-client ./client
   - docker build -t dannyradden/fib-nginx ./nginx
   - docker build -t dannyradden/fib-server ./server
