@@ -1,0 +1,11 @@
+{
+  "name": "fib-finder",
+  "version": "1.0.0",
+  "description": "Finds a number at a selected index of the Fibonacci sequence. Uses docker, react, express, postgres, and redis. Overkill obviously but just for practice. Does not spot lies.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyradden/fib-finder.git"
+  },
+  "author": "Danny Radden",
+  "license": "ISC"
+}
